@@ -46,6 +46,7 @@ public class Payment {
             this.outgoingInterest = outgoingInterest;
         }else {
             System.out.println("Outgoing interest ist fehlerhaft!");
+            this.incomingInterest = 0.0;
         }
     }
     // Konstructer für Payment (Alle Attributen)
@@ -53,8 +54,8 @@ public class Payment {
         this.date = date;
         this.amount = amount;
         this.description = description;
-        this.incomingInterest = incomingInterest;
-        this.outgoingInterest = outgoingInterest;
+        setIncomingInterest(incomingInterest);
+        setOutgoingInterest(outgoingInterest);
 
     }
     //Konstrukter für Payment (date,amount,description)
@@ -69,8 +70,8 @@ public class Payment {
         this.date = payment.getDate();
         this.amount = payment.getAmount();
         this.description = payment.getDescription();
-        this.incomingInterest = payment.getIncomingInterest();
-        this.outgoingInterest = payment.getOutgoingInterest();
+        setIncomingInterest(incomingInterest);
+        setOutgoingInterest(outgoingInterest);
     }
     //Print Object Methode die Alle attributen ausgibt
     public void printObject() {
@@ -80,7 +81,6 @@ public class Payment {
         System.out.println("Incoming Interest : " + this.getIncomingInterest());
         System.out.println("Outgoing Interest : " + this.getOutgoingInterest());
     }
-
 
 
 

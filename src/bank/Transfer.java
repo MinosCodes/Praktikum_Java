@@ -29,34 +29,42 @@ public class Transfer {
     public String getSender() { // getter für Sender
         return sender;
     }
-    public void setSender(String sender) {
+    public void setSender(String sender) { // setter für Sender
         this.sender = sender;
     }
-    public String getRecipient() {
+    public String getRecipient() { // getter für Recipient
         return recipient;
     }
-    public void setRecipient(String recipient) {
+    public void setRecipient(String recipient) { // setter für Recipient
         this.recipient = recipient;
     }
-    public Transfer(String date, double amount, String description) {
+    public Transfer(String date, double amount, String description) { // konstruktor für String , Amount , description
         this.date = date;
         this.amount = amount;
         this.description = description;
     }
-    public Transfer(String date, double amount, String sender, String recipient) {
+    public Transfer(String date, double amount,String description, String sender, String recipient) { // Konstruktor für alle Attribute
         this.date = date;
-        this.amount = amount;
+
+
         this.sender = sender;
         this.recipient = recipient;
+        this.description = description;
+        if (amount > 0){
+            this.amount = amount;
+        }else{
+            System.out.println("Fehler : Betrag is Negativ");
+            this.amount = 0.0;
+        }
     }
 
-    public Transfer(Transfer transfer) {
+    public Transfer(Transfer transfer) { // kopy konstruktor
         this.date = transfer.date;
-        this.amount = transfer.amount;
         this.sender = transfer.sender;
         this.recipient = transfer.recipient;
+        this.amount = transfer.amount;
     }
-    public void printObject() {
+    public void printObject() { // Ausgabe alle Atribute mit Values
         System.out.println("Date : " + this.getDate());
         System.out.println("Amount : " + this.getAmount());
         System.out.println("Description : " + this.getDescription());
