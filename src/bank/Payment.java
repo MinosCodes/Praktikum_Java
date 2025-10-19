@@ -2,9 +2,9 @@
 package bank;
 
 public class Payment {
-    String date;
-    double amount;
-    String description;
+    String date; // Datum des Transaktion
+    double amount;//Beitrag des Transaktion
+    String description;//Beschreibung
     private double incomingInterest;
     private double outgoingInterest;
 
