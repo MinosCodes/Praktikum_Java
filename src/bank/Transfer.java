@@ -45,7 +45,7 @@ public class Transfer { //überweisung
     }
     public Transfer(String date, double amount, String description) { // konstruktor für String , Amount , description
         this.date = date;
-        this.amount = amount;
+        setAmount(amount);
         this.description = description;
     }
     public Transfer(String date, double amount,String description, String sender, String recipient) { // Konstruktor für alle Attribute
@@ -55,7 +55,7 @@ public class Transfer { //überweisung
         this.sender = sender;
         this.recipient = recipient;
         this.description = description;
-        this.amount = amount;
+        setAmount(amount);
     }
 
     public Transfer(Transfer transfer) { // kopy konstruktor
@@ -63,6 +63,7 @@ public class Transfer { //überweisung
         this.sender = transfer.sender;
         this.recipient = transfer.recipient;
         this.amount = transfer.amount;
+        this.description = transfer.description;
     }
     public void printObject() { // Ausgabe alle Atribute mit Values
         System.out.println("Date : " + this.getDate());

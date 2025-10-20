@@ -14,7 +14,6 @@ public class main {
 
         System.out.println("\n=== Test 4: Transfer constructer mit 3 attributes ===");
         Transfer p4 = new Transfer("2025-10-16", 200, "Rent");
-
         System.out.println("\n=== Test 5: Payment copy constructor ===");
         Payment p5 = new Payment(p9);
 

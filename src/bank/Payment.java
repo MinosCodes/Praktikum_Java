@@ -54,8 +54,8 @@ public class Payment { // Ein-Auszahlung
         this.date = date;
         this.amount = amount;
         this.description = description;
-        this.incomingInterest=incomingInterest;
-        this.outgoingInterest=outgoingInterest;
+        setIncomingInterest(incomingInterest);
+        setOutgoingInterest(outgoingInterest);
 
     }
     //Konstrukter für Payment (date,amount,description)
@@ -72,7 +72,6 @@ public class Payment { // Ein-Auszahlung
         this.description = payment.getDescription();
         this.incomingInterest = payment.getIncomingInterest();
         this.outgoingInterest = payment.getOutgoingInterest();
-        setOutgoingInterest(outgoingInterest);
     }
     //Print Object Methode die Alle attributen ausgibt
     public void printObject() {
