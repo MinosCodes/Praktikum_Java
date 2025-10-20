@@ -2,8 +2,8 @@ package bank;
 
 public class Transfer {
     String date; // Datum der Transaktion
-    double amount;//etrag der Transaktion (positiv = Einzahlung, negativ = Auszahlung).
-    String description;// eschreibung des Zahlungsvorgangs.
+    double amount;//Betrag der Transaktion .
+    String description;// Beschreibung des Zahlungsvorgangs.
     private String sender;//Sender
     private String recipient;//Anfaenger
 
@@ -18,7 +18,12 @@ public class Transfer {
         return amount;
     }
     public void setAmount(double amount) {// setter für amount
-        this.amount = amount;
+        if (amount > 0){
+            this.amount = amount;
+        }else{
+            System.out.println("Fehler : Betrag is Negativ");
+            this.amount = 0.0;
+        }
     }
     public String getDescription() {// getter für description
         return description;
@@ -50,12 +55,7 @@ public class Transfer {
         this.sender = sender;
         this.recipient = recipient;
         this.description = description;
-        if (amount > 0){
-            this.amount = amount;
-        }else{
-            System.out.println("Fehler : Betrag is Negativ");
-            this.amount = 0.0;
-        }
+        this.amount = amount;
     }
 
     public Transfer(Transfer transfer) { // kopy konstruktor

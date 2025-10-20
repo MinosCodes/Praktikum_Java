@@ -3,9 +3,9 @@ import bank.Transfer;
 
 public class main {
     public static void main(String[] args) {
-        System.out.println("=== Test 1: Fehler beim incoming interest ===");
+        System.out.println("\n=== Test 1: Fehler beim incoming interest ===");
         Payment p1 = new Payment("2025-10-16", 200.0, "Salary", 1.2, 0.01);
-        System.out.println("=== Test 9: Fehler beim outgoing interest ===");
+        System.out.println("\n=== Test 9: Fehler beim outgoing interest ===");
         Payment p9 = new Payment("2025-10-16", 200.0, "Salary", 0.2, 1.5);
         System.out.println("\n=== Test 2: Transfer mit alle attribute ===");
         Transfer p2 = new Transfer("2025-10-16", 200, "Rent", "Amine", "John");
@@ -17,7 +17,7 @@ public class main {
         Transfer p4 = new Transfer("2025-10-16", 200, "Rent");
 
         System.out.println("\n=== Test 5: Payment copy constructor ===");
-        Payment p5 = new Payment(p1);
+        Payment p5 = new Payment(p9);
 
         System.out.println("\n=== Test 6: Transfer copy constructor ===");
         Transfer p6 = new Transfer(p2);
