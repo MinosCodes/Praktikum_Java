@@ -9,7 +9,6 @@ public class main {
         Payment p9 = new Payment("2025-10-16", 200.0, "Salary", 0.2, 1.5);
         System.out.println("\n=== Test 2: Transfer mit alle attribute ===");
         Transfer p2 = new Transfer("2025-10-16", 200, "Rent", "Amine", "John");
-
         System.out.println("\n=== Test 3: Payment constructor mit 3 attribute ===");
         Payment p3  = new Payment("2025-10-16", 200.0, "Salary");
 

@@ -1,9 +1,9 @@
 package bank;
 
-public class Transfer {
-    String date; // Datum der Transaktion
-    double amount;//Betrag der Transaktion .
-    String description;// Beschreibung des Zahlungsvorgangs.
+public class Transfer { //überweisung
+    private String date; // Datum der Transaktion
+    private double amount;//Betrag der Transaktion .
+    private String description;// Beschreibung des Zahlungsvorgangs.
     private String sender;//Sender
     private String recipient;//Anfaenger
 

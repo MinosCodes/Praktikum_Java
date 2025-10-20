@@ -1,12 +1,12 @@
 
 package bank;
 
-public class Payment {
-    String date; // Datum des Transaktion
-    double amount;//Beitrag des Transaktion
-    String description;//Beschreibung
-    private double incomingInterest;
-    private double outgoingInterest;
+public class Payment { // Ein-Auszahlung
+    private String date; // Datum des Transaktion
+    private double amount;//Beitrag des Transaktion
+    private String description;//Beschreibung
+    private double incomingInterest; // Zinsen bei einer Einzahlung
+    private double outgoingInterest;// Zinsen bei einer Auszahlung
 
 
     public String getDate() {
