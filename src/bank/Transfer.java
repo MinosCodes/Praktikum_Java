@@ -1,22 +1,12 @@
 package bank;
 
-public class Transfer { //überweisung
-    private String date; // Datum der Transaktion
-    private double amount;//Betrag der Transaktion .
-    private String description;// Beschreibung des Zahlungsvorgangs.
+public class Transfer extends Transaction {  //überweisung Klasse
     private String sender;//Sender
     private String recipient;//Anfaenger
 
 
-    public String getDate() { // getter für Date
-        return date;
-    }
-    public void setDate(String date) { // setter für Date
-        this.date = date;
-    }
-    public double getAmount() { // getter für Amount
-        return amount;
-    }
+
+    @Override
     public void setAmount(double amount) {// setter für amount
         if (amount > 0){
             this.amount = amount;
@@ -25,12 +15,7 @@ public class Transfer { //überweisung
             this.amount = 0.0;
         }
     }
-    public String getDescription() {// getter für description
-        return description;
-    }
-    public void setDescription(String description) {// setter für description
-        this.description = description;
-    }
+
     public String getSender() { // getter für Sender
         return sender;
     }
@@ -43,28 +28,17 @@ public class Transfer { //überweisung
     public void setRecipient(String recipient) { // setter für Recipient
         this.recipient = recipient;
     }
-    public Transfer(String date, double amount, String description) { // konstruktor für String , Amount , description
-        this.date = date;
-        setAmount(amount);
-        this.description = description;
-    }
-    public Transfer(String date, double amount,String description, String sender, String recipient) { // Konstruktor für alle Attribute
-        this.date = date;
-
-
+    public Transfer(String date, double amount, String description,String sender, String recipient) {
+        super(date, amount, description);
         this.sender = sender;
         this.recipient = recipient;
-        this.description = description;
-        setAmount(amount);
+    }
+    public Transfer(Transfer transfer) {
+        super(transfer);
+        this.recipient = transfer.recipient;
+        this.sender = transfer.sender;
     }
 
-    public Transfer(Transfer transfer) { // kopy konstruktor
-        this.date = transfer.date;
-        this.sender = transfer.sender;
-        this.recipient = transfer.recipient;
-        this.amount = transfer.amount;
-        this.description = transfer.description;
-    }
     public void printObject() { // Ausgabe alle Atribute mit Values
         System.out.println("Date : " + this.getDate());
         System.out.println("Amount : " + this.getAmount());
