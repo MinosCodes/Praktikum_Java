@@ -39,17 +39,22 @@ public class Transfer extends Transaction implements CalculateBill  {  //überwe
         this.sender = transfer.sender;
     }
 
-    public void printObject() { // Ausgabe alle Atribute mit Values
-        System.out.println("Date : " + this.getDate());
-        System.out.println("Amount : " + this.getAmount());
-        System.out.println("Description : " + this.getDescription());
-        System.out.println("Sender : " + this.getSender());
-        System.out.println("Recipient : " + this.getRecipient());
-    }
+
     @Override
     public double calculate() {
         return this.getAmount();
     }
+
+    @Override
+    public String toString() {
+        return  "===== Transfer Details =====\n" +
+                "Amount: " + Double.toString(this.calculate()) + "\n" +
+                super.toString() + "\n" +
+                "Sender: " + this.sender + "\n" +
+                "Recipient: " + this.recipient + "\n" +
+                "============================";
+    }
+
 
 }
 

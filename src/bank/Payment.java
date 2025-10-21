@@ -46,14 +46,7 @@ public class Payment extends Transaction implements CalculateBill{ // Ein-Auszah
         this.incomingInterest = payment.getIncomingInterest();
         this.outgoingInterest = payment.getOutgoingInterest();
     }
-    //Print Object Methode die Alle attributen ausgibt
-    public void printObject() {
-        System.out.println("Date : " + this.getDate());
-        System.out.println("Amount : " + this.getAmount());
-        System.out.println("Description : " + this.getDescription());
-        System.out.println("Incoming Interest : " + this.getIncomingInterest());
-        System.out.println("Outgoing Interest : " + this.getOutgoingInterest());
-    }
+
      @Override
     public double calculate() {
         if(this.getAmount() > 0){
@@ -61,9 +54,17 @@ public class Payment extends Transaction implements CalculateBill{ // Ein-Auszah
         }else{
             return this.getAmount() * (this.outgoingInterest+1);
         }
+    }
+    @Override
+    public String toString() {
+        return  "===== Transfer Details =====\n" +
+                "Amount: " + Double.toString(this.calculate()) + "\n" +
+                super.toString() + "\n" +
+                "outgoingInterest: " + this.outgoingInterest + "\n" +
+                "incomingInterest: " + this.incomingInterest + "\n" +
+                "============================";
 
-
-     }
+    }
 
 
 

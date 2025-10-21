@@ -35,4 +35,8 @@ public class Transaction {
         this.amount = transaction.amount;
         this.description = transaction.description;
     }
+    @Override
+    public String toString() {
+        return "\ndate: " + date + "\ndescription: " + description;
+    }
 }
