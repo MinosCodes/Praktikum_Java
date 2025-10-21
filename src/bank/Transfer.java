@@ -1,6 +1,6 @@
 package bank;
 
-public class Transfer extends Transaction {  //überweisung Klasse
+public class Transfer extends Transaction implements CalculateBill  {  //überweisung Klasse
     private String sender;//Sender
     private String recipient;//Anfaenger
 
@@ -45,6 +45,10 @@ public class Transfer extends Transaction {  //überweisung Klasse
         System.out.println("Description : " + this.getDescription());
         System.out.println("Sender : " + this.getSender());
         System.out.println("Recipient : " + this.getRecipient());
+    }
+    @Override
+    public double calculate() {
+        return this.getAmount();
     }
 
 }

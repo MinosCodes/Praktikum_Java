@@ -1,7 +1,8 @@
 
 package bank;
 
-public class Payment extends Transaction { // Ein-Auszahlung
+public class Payment extends Transaction implements CalculateBill{ // Ein-Auszahlung
+
     private double incomingInterest; // Zinsen bei einer Einzahlung
     private double outgoingInterest;// Zinsen bei einer Auszahlung
 
@@ -53,6 +54,16 @@ public class Payment extends Transaction { // Ein-Auszahlung
         System.out.println("Incoming Interest : " + this.getIncomingInterest());
         System.out.println("Outgoing Interest : " + this.getOutgoingInterest());
     }
+     @Override
+    public double calculate() {
+        if(this.getAmount() > 0){
+            return this.getAmount() * (this.incomingInterest+1);
+        }else{
+            return this.getAmount() * (this.outgoingInterest+1);
+        }
+
+
+     }
 
 
 
