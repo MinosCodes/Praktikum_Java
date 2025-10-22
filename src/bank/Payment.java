@@ -1,3 +1,7 @@
+/**
+ * @author MinosCodes
+ */
+
 
 package bank;
 
@@ -63,6 +67,23 @@ public class Payment extends Transaction implements CalculateBill{ // Ein-Auszah
                 "outgoingInterest: " + this.outgoingInterest + "\n" +
                 "incomingInterest: " + this.incomingInterest + "\n" +
                 "============================";
+
+    }
+
+
+    /**
+     * this function overrides the equals() default methode
+     * @param obj object to compare
+     * @return boolean
+     *
+     * */
+    @Override
+    public boolean equals(Object obj) {
+        if (!(super.equals(obj))) return false;
+        if (!(obj instanceof Payment)) return false;
+        Payment payment = (Payment) obj;
+        return  Double.compare(incomingInterest,payment.incomingInterest) == 0.0 && Double.compare(outgoingInterest,payment.outgoingInterest) == 0.0;
+
 
     }
 

@@ -1,3 +1,8 @@
+/**
+ * @author MinosCodes
+ */
+
+
 package bank;
 
 public class Transaction {
@@ -38,5 +43,17 @@ public class Transaction {
     @Override
     public String toString() {
         return "\ndate: " + date + "\ndescription: " + description;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Transaction)) {
+            return false;
+
+        }
+        if (obj == this) {
+            return true;
+        }
+        Transaction other = (Transaction) obj;
+        return date.equals(other.date) && amount == other.amount && description.equals(other.description);
     }
 }

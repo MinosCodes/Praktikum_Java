@@ -1,4 +1,10 @@
+/**
+ * @author MinosCodes
+ */
+
+
 package bank;
+
 
 public class Transfer extends Transaction implements CalculateBill  {  //überweisung Klasse
     private String sender;//Sender
@@ -53,6 +59,15 @@ public class Transfer extends Transaction implements CalculateBill  {  //überwe
                 "Sender: " + this.sender + "\n" +
                 "Recipient: " + this.recipient + "\n" +
                 "============================";
+    }
+    @Override
+    public boolean equals(Object obj) {
+        if (!(super.equals(obj))) return false;
+        if (!(obj instanceof Transfer)) return false;
+        Transfer transfer = (Transfer) obj;
+        return  transfer.sender.equals(this.sender) && transfer.recipient.equals(this.recipient);
+
+
     }
 
 
