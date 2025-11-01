@@ -5,7 +5,7 @@ package bank;
  *
  * @author MinosCodes
  */
-public class Transaction {
+public abstract class Transaction {
 
     /**
      * Datum der Transaktion.
