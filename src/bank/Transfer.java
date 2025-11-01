@@ -1,51 +1,86 @@
-/**
- * @author MinosCodes
- */
-
-
 package bank;
 
+/**
+ * Repräsentiert eine Überweisung zwischen einem Sender und einem Empfänger.
+ *
+ * @author MinosCodes
+ */
+public class Transfer extends Transaction implements CalculateBill {
 
-public class Transfer extends Transaction implements CalculateBill  {  //überweisung Klasse
-    private String sender;//Sender
-    private String recipient;//Anfaenger
+    /**
+     * Name des Senders.
+     */
+    private String sender;
 
+    /**
+     * Name des Empfängers.
+     */
+    private String recipient;
 
+    /**
+     * Konstruktor für ein Transfer-Objekt.
+     *
+     * @param date Datum der Überweisung
+     * @param amount Betrag der Überweisung (muss positiv sein)
+     * @param description Beschreibung der Überweisung
+     * @param sender Sender der Überweisung
+     * @param recipient Empfänger der Überweisung
+     */
+    public Transfer(String date, double amount, String description,
+                    String sender, String recipient) {
+        super(date, amount, description);
+        setAmount(amount);
+        this.sender = sender;
+        this.recipient = recipient;
+    }
 
+    /**
+     * Kopierkonstruktor.
+     *
+     * @param transfer zu kopierende Überweisung
+     */
+    public Transfer(Transfer transfer) {
+        super(transfer);
+        this.sender = transfer.sender;
+        this.recipient = transfer.recipient;
+    }
+
+    /**
+     * Setter mit Validierung: Betrag muss positiv sein.
+     *
+     * @param amount neuer Betrag
+     */
     @Override
-    public void setAmount(double amount) {// setter für amount
-        if (amount > 0){
+    public void setAmount(double amount) {
+        if (amount > 0)
             this.amount = amount;
-        }else{
-            System.out.println("Fehler : Betrag is Negativ");
+        else {
+            System.out.println("Fehler: Betrag ist negativ!");
             this.amount = 0.0;
         }
     }
 
-    public String getSender() { // getter für Sender
+    public String getSender() {
         return sender;
     }
-    public void setSender(String sender) { // setter für Sender
+
+    public void setSender(String sender) {
         this.sender = sender;
     }
-    public String getRecipient() { // getter für Recipient
+
+    public String getRecipient() {
         return recipient;
     }
-    public void setRecipient(String recipient) { // setter für Recipient
+
+    public void setRecipient(String recipient) {
         this.recipient = recipient;
     }
-    public Transfer(String date, double amount, String description,String sender, String recipient) {
-        super(date, amount, description);
-        this.sender = sender;
-        this.recipient = recipient;
-    }
-    public Transfer(Transfer transfer) {
-        super(transfer);
-        this.recipient = transfer.recipient;
-        this.sender = transfer.sender;
-    }
 
-
+    /**
+     * Überweisungen haben keine Zinsen – es wird der reine Betrag zurückgegeben.
+     *
+     * @return Betrag ohne Veränderung
+     */
     @Override
     public double calculate() {
         return this.getAmount();
@@ -53,23 +88,20 @@ public class Transfer extends Transaction implements CalculateBill  {  //überwe
 
     @Override
     public String toString() {
-        return  "===== Transfer Details =====\n" +
-                "Amount: " + Double.toString(this.calculate()) + "\n" +
+        return "===== Transfer Details =====\n" +
+                "Amount: " + this.calculate() + "\n" +
                 super.toString() + "\n" +
                 "Sender: " + this.sender + "\n" +
                 "Recipient: " + this.recipient + "\n" +
                 "============================";
     }
+
     @Override
     public boolean equals(Object obj) {
         if (!(super.equals(obj))) return false;
         if (!(obj instanceof Transfer)) return false;
         Transfer transfer = (Transfer) obj;
-        return  transfer.sender.equals(this.sender) && transfer.recipient.equals(this.recipient);
-
-
+        return sender.equals(transfer.sender) &&
+                recipient.equals(transfer.recipient);
     }
-
-
 }
-
